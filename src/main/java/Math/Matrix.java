@@ -44,14 +44,14 @@ public class Matrix {
     }
 
     public void fill(double value) {
-        for (int i = 0; i < data.length; i++) {
-            Arrays.fill(data[i], value);
+        for (double[] datum : data) {
+            Arrays.fill(datum, value);
         }
     }
 
     public void fill(double[] value) {
-        for (int i = 0; i < data.length; i++) {
-            System.arraycopy(value, 0, data[i], 0, data.length);
+        for (double[] datum : data) {
+            System.arraycopy(value, 0, datum, 0, data.length);
         }
     }
 
@@ -64,7 +64,7 @@ public class Matrix {
         if (data.length != in.data[0].length) {
             throw new IllegalArgumentException("invalid dimensions");
         }
-        double out[][] = new double[row1][col2];
+        double[][] out = new double[row1][col2];
         for (i = 0; i < row1; i++) {
             for (j = 0; j < col2; j++) {
                 for (k = 0; k < row2; k++)
